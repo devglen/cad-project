@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Command</title>
+</head>
+<body>
+    <h1>Add an operation for the Machine!</h1>
+    <form id="newMachine" enctype="multipart/form-data">
+        <label for="machineName">Name</label>
+        <input id="machineName" name="machineName" />
+
+        <br>
+
+        <label for="machineCode">Code</label>
+        <textarea id="machineCode" name="machineCode"></textarea>
+
+        <br>
+
+        <span>Add Parameters</span>
+        <a href="#" id="newParameter" name="newParameter">Add</a>
+
+        <br>
+        <div id="machineParameters"></div>
+
+        <br>
+
+        <button id="saveMachine">Save</button>
+    </form>
+    
+
+    <script src="./app.js"></script>	
+</body>
+</html>
