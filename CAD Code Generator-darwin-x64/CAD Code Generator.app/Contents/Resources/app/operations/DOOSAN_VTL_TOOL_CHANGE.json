@@ -1,1 +1,0 @@
-{"name":"TOOL CHANGE","code":"N60 M01\nN70 T0101(TOOL NAME)\nN80 M41\nN90 G96 S650\nN100 M04\nN110 M08\nN120\nN130 G00 Z1.000 M09\nN140 M05 G40 G28 U0 W0","input_title_0":"W","input_title_1":"Z"}
