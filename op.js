@@ -24,7 +24,7 @@ document.getElementById("saveOperation").addEventListener("click", function(){
     filename = machineName + "_" + filename;
     console.log("URL PARAM", window.location.search.substring(1));
 
-    jetpack.write("./operations/" + filename + ".json", dataToSend);
+    jetpack.write(remote.app.getPath("userData") + "/operations/" + filename + ".json", dataToSend);
     alert("Form data: " + dataToSend);
     remote.getCurrentWindow().getParentWindow().reload();
     remote.getCurrentWindow().close();

@@ -21,7 +21,9 @@
   },
   "dependencies": {
     "electron-is-dev": "^0.3.0",
+    "electron-json-storage": "^4.0.2",
     "electron-reload": "^1.2.2",
+    "electron-storage": "^1.0.7",
     "fs-jetpack": "^1.2.0"
   }
 }

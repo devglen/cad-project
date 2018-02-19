@@ -2,6 +2,7 @@ const { ipcRenderer, remote } = require( "electron" );
 const jetpack = require('fs-jetpack');
 
 document.addEventListener( "DOMContentLoaded", () => {
+    console.log("USERDATA PATH:", remote.app.getPath("userData"));
     const version = process.version;
     const e = document.getElementById( "info" );
     e.textContent = `I'm running Node.js version: ${ version }`;
@@ -31,11 +32,11 @@ document.addEventListener( "DOMContentLoaded", () => {
 function getMachines() {
     try {
         var machinesContainer = document.getElementById("machines");
-        var machineFiles = jetpack.list("./machines/");
+        var machineFiles = jetpack.list(remote.app.getPath("userData") + "/machines/");
         console.log(machineFiles);
     
         for (var i = 0; i < machineFiles.length; i++) {
-            var machineFile = jetpack.read("./machines/" + machineFiles[i], "json");
+            var machineFile = jetpack.read(remote.app.getPath("userData") + "/machines/" + machineFiles[i], "json");
             
             var header = document.createElement("h1");
             header.innerText = machineFile.name;
@@ -139,7 +140,7 @@ function initCodeGenBtnListeners() {
 function getOperationsForMachine(container, machineName) {
     try {
         var opsContainer = document.createElement("div");
-        var operationFiles = jetpack.list("./operations/");
+        var operationFiles = jetpack.list(remote.app.getPath("userData") + "/operations/");
         console.log("operation files: " , operationFiles);
 
         if (!operationFiles) {
@@ -155,7 +156,7 @@ function getOperationsForMachine(container, machineName) {
                 continue;
             }
 
-            var operationFile = jetpack.read("./operations/" + operationFiles[i], "json");
+            var operationFile = jetpack.read(remote.app.getPath("userData") + "/operations/" + operationFiles[i], "json");
 
             var opContainer = document.createElement("div");
             opContainer.setAttribute("id", operationFile.name);

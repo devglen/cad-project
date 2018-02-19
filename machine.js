@@ -11,7 +11,7 @@ document.getElementById("saveMachine").addEventListener("click", function(){
     var dataToSend = document.querySelector("form").serialize();
 
     var filename = document.getElementById("name").value.split(" ").join("_");
-    jetpack.write("./machines/" + filename + ".json", dataToSend);
+    jetpack.write(remote.app.getPath("userData") + "/machines/" + filename + ".json", dataToSend);
     alert("Form data: " + dataToSend);
     remote.getCurrentWindow().getParentWindow().reload();
     remote.getCurrentWindow().close();
